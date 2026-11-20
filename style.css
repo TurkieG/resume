@@ -1,0 +1,28 @@
+
+/* Style for the resume */
+:root {
+    --forestgreen: #228B22;
+    --darkgreen: #006400;
+    --alabaster: #FAFAFA;
+    --mahogany: #C04000;
+    --line: #4B4B4B;
+  --shadow: 0 10px 30px limegreen;
+}
+*{box-sizing: border-box; 
+}
+html { scroll-behavior: smooth; }
+
+body {
+   margin: 0;
+  font-family: 'Times New Roman', Times, serif, sans-serif;
+  color: darkgreen;
+  background: mahogany;
+  line-height: 1.55;
+
+}
+h2 {
+    font-family: Georgia, serif;
+    font-size: 24px;
+    color: mahogany #C04000;
+
+}
