@@ -1,49 +1,120 @@
-
-/* Style for the resume */
+/* Style for the resume: natural greens and browns */
 :root {
-    --forestgreen: #228B22;
-    --darkgreen: #006400;
-    --alabaster: #FAFAFA;
-    --mahogany: #C04000;
-    --line: #4B4B4B;
-    --shadow: 0 10px 30px limegreen;
+    --moss: #2E4A2B;        /* deep forest green: sidebar, name */
+    --sage: #A9BFA0;        /* soft leaf green: sidebar subheadings */
+    --soil: #5C4033;        /* dark topsoil brown: section headings */
+    --loam: #8B6B4A;        /* lighter brown: rules and dividers */
+    --lichen: #F7F8F3;      /* green-tinted off-white: the page */
+    --meadow: #D9DFD0;      /* pale sage: backdrop behind the page */
+    --bark: #3B3B34;        /* warm charcoal: body text */
 }
-*{box-sizing: border-box; 
-}
-html { scroll-behavior: smooth; }
 
-.page {
-    display: grid;
-    grid-template-columns: 17rem 1fr;
-}
-.content {
-    padding: 20px;
-}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 
 body {
     margin: 0;
-    font-family: 'Times New Roman', Times, serif, sans-serif;
-    color: var(--darkgreen);
-    background-color: var(--alabaster);
-    line-height: 1.55;
+    font-family: system-ui, "Segoe UI", Helvetica, Arial, sans-serif;
+    color: var(--bark);
+    background-color: var(--meadow);
+    line-height: 1.6;
+}
 
+/* Layout: sidebar + main, inside a centered sheet of paper */
+.page {
+    display: grid;
+    grid-template-columns: 16rem 1fr;
+    max-width: 56rem;
+    min-height: 100vh;
+    margin: 0 auto;
+    background-color: var(--lichen);
+    box-shadow: 0 0 24px rgba(46, 74, 43, 0.18);
 }
-h1 {
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 36px;
-    color: var(--mahogany);
-    text-align: left;
+
+/* Sidebar */
+.sidebar {
+    background-color: var(--moss);
+    color: var(--lichen);
+    padding: 2.5rem 1.5rem;
 }
-h2 {
+
+.sidebar h2 {
     font-family: Georgia, serif;
-    font-size: 24px;
-    color: var(--mahogany);
-    text-align: left;
-
+    font-size: 1.4rem;
+    color: var(--lichen);
+    margin: 0 0 0.5rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid var(--loam);
 }
-aside {
-    background-color: var(--forestgreen);
-    color: var(--alabaster);
-    padding: 20px;
-    box-shadow: var(--shadow);
+
+.sidebar h3 {
+    font-size: 1rem;
+    color: var(--sage);
+    margin: 1.5rem 0 0.4rem;
+}
+
+.sidebar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.sidebar li { padding: 0.15rem 0; }
+
+/* Main content */
+.content { padding: 2.5rem 3rem; }
+
+h1 {
+    font-family: Georgia, serif;
+    font-size: 2.6rem;
+    line-height: 1.1;
+    color: var(--moss);
+    margin: 0 0 0.5rem;
+}
+
+.contact { margin: 0 0 2.5rem; }
+
+.contact a {
+    color: var(--bark);
+    text-decoration: none;
+}
+.contact a:hover { text-decoration: underline; }
+
+.divider {
+    margin: 0 0.5rem;
+    color: var(--loam);
+}
+
+.content h2 {
+    font-family: Georgia, serif;
+    font-size: 1.4rem;
+    color: var(--soil);
+    margin: 0 0 0.6rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 2px solid var(--loam);
+}
+
+.content section + section { margin-top: 2rem; }
+
+.content p { margin: 0.25rem 0; }
+
+.item-title {
+    font-weight: 700;
+    color: var(--moss);
+}
+
+/* Phones: stack the columns */
+@media (max-width: 700px) {
+    .page { grid-template-columns: 1fr; }
+    .content { padding: 2rem 1.5rem; }
+}
+
+/* Print / Save as PDF */
+@media print {
+    body { background: white; }
+    .page { box-shadow: none; max-width: none; }
+    .sidebar {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
 }
