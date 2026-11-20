@@ -12,6 +12,20 @@
 }
 html { scroll-behavior: smooth; }
 
+.page {
+    display: grid;
+    grid-template-columns: 17rem 1fr;
+}
+.page {
+    display: flex;
+}
+.sidebar {
+    width: 17rem;
+}
+.content {
+    flex: 1;
+}
+
 body {
     margin: 0;
     font-family: 'Times New Roman', Times, serif, sans-serif;
@@ -20,9 +34,22 @@ body {
     line-height: 1.55;
 
 }
+h1 {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 36px;
+    color: var(--mahogany);
+    text-align: left;
+}
 h2 {
     font-family: Georgia, serif;
     font-size: 24px;
     color: var(--mahogany);
+    text-align: left;
 
+}
+aside {
+    background-color: var(--forestgreen);
+    color: var(--alabaster);
+    padding: 20px;
+    box-shadow: var(--shadow);
 }
