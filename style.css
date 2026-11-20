@@ -20,11 +20,16 @@ body {
     line-height: 1.6;
 }
 
+a:focus-visible {
+    outline: 2px solid var(--loam);
+    outline-offset: 2px;
+}
+
 /* Layout: sidebar + main, inside a centered sheet of paper */
 .page {
     display: grid;
     grid-template-columns: 16rem 1fr;
-    max-width: 56rem;
+    max-width: 58rem;
     min-height: 100vh;
     margin: 0 auto;
     background-color: var(--lichen);
@@ -59,7 +64,10 @@ body {
     padding: 0;
 }
 
-.sidebar li { padding: 0.15rem 0; }
+.sidebar li {
+    padding: 0.15rem 0;
+    line-height: 1.4;
+}
 
 /* Main content */
 .content { padding: 2.5rem 3rem; }
@@ -69,10 +77,25 @@ h1 {
     font-size: 2.6rem;
     line-height: 1.1;
     color: var(--moss);
-    margin: 0 0 0.5rem;
+    margin: 0;
 }
 
-.contact { margin: 0 0 2.5rem; }
+.title {
+    font-family: Georgia, serif;
+    font-size: 1.2rem;
+    color: var(--soil);
+    margin: 0.35rem 0 0.9rem;
+}
+
+.contact {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.2rem 1.5rem;
+    list-style: none;
+    margin: 0 0 2.5rem;
+    padding: 0;
+    font-size: 0.95rem;
+}
 
 .contact a {
     color: var(--bark);
@@ -80,16 +103,11 @@ h1 {
 }
 .contact a:hover { text-decoration: underline; }
 
-.divider {
-    margin: 0 0.5rem;
-    color: var(--loam);
-}
-
 .content h2 {
     font-family: Georgia, serif;
     font-size: 1.4rem;
     color: var(--soil);
-    margin: 0 0 0.6rem;
+    margin: 0 0 0.8rem;
     padding-bottom: 0.3rem;
     border-bottom: 2px solid var(--loam);
 }
@@ -98,9 +116,39 @@ h1 {
 
 .content p { margin: 0.25rem 0; }
 
-.item-title {
-    font-weight: 700;
+.content ul {
+    margin: 0.4rem 0 0;
+    padding-left: 1.2rem;
+}
+
+.content li { padding: 0.1rem 0; }
+
+/* Experience and education entries */
+.entry + .entry { margin-top: 1.25rem; }
+
+.entry-head {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 0 1rem;
+}
+
+.entry h3 {
+    font-size: 1.05rem;
     color: var(--moss);
+    margin: 0;
+}
+
+.dates {
+    font-size: 0.9rem;
+    color: var(--loam);
+    white-space: nowrap;
+}
+
+.org {
+    font-style: italic;
+    margin: 0.1rem 0 0;
 }
 
 /* Phones: stack the columns */
@@ -112,9 +160,10 @@ h1 {
 /* Print / Save as PDF */
 @media print {
     body { background: white; }
-    .page { box-shadow: none; max-width: none; }
+    .page { box-shadow: none; max-width: none; min-height: 0; }
     .sidebar {
         -webkit-print-color-adjust: exact;
         print-color-adjust: exact;
     }
+    .entry { break-inside: avoid; }
 }
