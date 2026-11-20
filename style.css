@@ -16,14 +16,8 @@ html { scroll-behavior: smooth; }
     display: grid;
     grid-template-columns: 17rem 1fr;
 }
-.page {
-    display: flex;
-}
-.sidebar {
-    width: 17rem;
-}
 .content {
-    flex: 1;
+    padding: 20px;
 }
 
 body {
